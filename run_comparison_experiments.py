@@ -205,7 +205,8 @@ plt.minorticks_on()
 plt.tick_params(axis='both', which='major', labelsize=11)
 plt.tick_params(axis='both', which='minor', labelsize=8)
 
-plt.xticks(np.arange(0, 81, 8), np.arange(0, hyperparameters.EPOCHS + 1, int(hyperparameters.EPOCHS / 10)))
+plt.xticks(np.arange(0, int(hyperparameters.EPOCHS / hyperparameters.STEP_SHOW) + 1, int(hyperparameters.EPOCHS / hyperparameters.STEP_SHOW) / 10),
+           np.arange(0, hyperparameters.EPOCHS + 1, int(hyperparameters.EPOCHS / 10)))
 
 plt.xlim([-1, 81])
 plt.ylabel("PSNR(dB)", fontsize=10, fontweight="bold")
