@@ -1,6 +1,60 @@
-## Multi-Head ReLU Implicit Neural Representation Networks
-Official implementation of <a href="https://arxiv.org/abs/2110.03448">MH-RELU-INR</a> 
-in tensorflow 2.x. 
+## MH-RELU-INR
+This is the Tensorflow 2.x implementation of our paper ["Multi-Head ReLU Implicit Neural Representation Networks"](https://arxiv.org/abs/2110.03448), submitted in ICASSP 2022. 
+
+<div align=center>
+<img width=95% src="https://github.com/AlirezaMorsali/MH-RELU-INR/blob/master/pics/Architecture.png"/>
+</div>
+In this paper, a novel multi-head multi-layer perceptron (MLP) structure is presented for implicit neural representation (INR). Since conventional rectified linear unit (ReLU) networks are shown to exhibit spectral bias towards learning low-frequency features of the signal, we aim at mitigating this defect by taking advantage of local structure of the signals. To be more specific, an MLP is used to capture the global features of the underlying generator function of the desired signal. Then, several heads are utilized to reconstruct disjoint local features of the signal, and to reduce the computational complexity, sparse layers are deployed for attaching heads to the body. Through various experiments, we show that the proposed model does not suffer from the special bias of conventional ReLU networks and has superior generalization capabilities. Finally, simulation results confirm that the proposed multi-head structure outperforms existing INR methods with considerably less computational cost.
 
 
-### More descriptions will be added soon!!!
+
+## Run
+### 1. Clone Repository
+```bash
+$ git clone https://github.com/AlirezaMorsali/MH-RELU-INR.git
+$ cd MH-RELU-INR/
+```
+### 2. Requirements
+- Tensorflow >= 2.3.0
+- Numpy >= 1.19.2
+- Scikit-image >= 4.50.2
+- Matplotlib> = 3.3.1
+- Opencv-python >= 4.5.1
+
+```bash
+$ pip install -r requirements.txt
+```
+
+### 3. Set hyperparameters and training config :
+You only need to change the constants in the [hyperparameters.py](https://github.com/AlirezaMorsali/MH-RELU-INR/blob/main/hyperparameters.py) to set the hyperparameters and the training config.
+
+### 4. Run experiments:
+Use the following codes to run the experiments.
+- Note : The results for the experiments are saved in the [result](https://github.com/AlirezaMorsali/MH-RELU-INR/tree/main/results) folder.
+
+#### Comparison experiments:
+```bash
+$ python run_comparison_experiments.py
+```
+
+#### Generalization experiments:
+```bash
+$ python run_generalization_experiments.py
+```
+
+#### Spectral bias experiments:
+```bash
+$ python run_spectral_bias_experiments.py
+```
+
+## Citation
+
+If you find our code useful for your research, please consider citing:
+```bibtex
+@article{aftab2021multi,
+  title={Multi-Head ReLU Implicit Neural Representation Networks},
+  author={Aftab, Arya and Morsali, Alireza},
+  journal={arXiv preprint arXiv:2110.03448},
+  year={2021}
+}
+```
