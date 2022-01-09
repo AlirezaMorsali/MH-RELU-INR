@@ -35,22 +35,22 @@ ap.add_argument("-i", "--image_path",
 ap.add_argument("-nh", "--n_heads",
                 default=64,
                 type=int,
-                help="number of head for multi-head network")
+                help="number of heads for multi-head network")
 
 ap.add_argument("-bh", "--base_nheads",
                 default=64,
                 type=int,
-                help="root number of head for base multi-head network(for fair comparison)")
+                help="root number of heads for base multi-head network(for fair comparison)")
 
 ap.add_argument("-ba", "--base_alpha",
                 default=256,
                 type=int,
-                help="alpha parameters for base multi-head network(for fair comparison)")
+                help="alpha parameter for base multi-head network(for fair comparison)")
 
 ap.add_argument("-ub", "--use_bias_sparse",
                 default=True,
                 type=bool,
-                help="Use the bias for the head part of the multi-head network")
+                help="use bias for the head part of the multi-head network")
 
 args = vars(ap.parse_args())
 
@@ -254,7 +254,7 @@ plt.tick_params(axis='both', which='minor', labelsize=8)
 plt.xticks(np.arange(0, int(hyperparameters.EPOCHS / hyperparameters.STEP_SHOW) + 1, int(hyperparameters.EPOCHS / hyperparameters.STEP_SHOW) / 10),
            np.arange(0, hyperparameters.EPOCHS + 1, int(hyperparameters.EPOCHS / 10)))
 
-plt.xlim([-1, 81])
+plt.xlim([-1, int(hyperparameters.EPOCHS / hyperparameters.STEP_SHOW) + 1])
 plt.ylabel("PSNR(dB)", fontsize=10, fontweight="bold")
 plt.xlabel('Epoch', fontsize=10, fontweight="bold")
 

@@ -32,17 +32,17 @@ ap.add_argument("-i", "--image_path",
 ap.add_argument("-bh", "--base_nheads",
                 default=256,
                 type=int,
-                help="root number of head for base multi-head network(for fair comparison)")
+                help="root number of heads for base multi-head network(for fair comparison)")
 
 ap.add_argument("-ba", "--base_alpha",
                 default=32,
                 type=int,
-                help="alpha parameters for base multi-head network(for fair comparison)")
+                help="alpha parameter for base multi-head network(for fair comparison)")
 
 ap.add_argument("-ub", "--use_bias_sparse",
                 default=False,
                 type=bool,
-                help="Use the bias for the head part of the multi-head network")
+                help="use bias for the head part of the multi-head network")
 
 args = vars(ap.parse_args())
 
@@ -156,7 +156,7 @@ plt.minorticks_on()
 plt.tick_params(axis='both', which='major', labelsize=11)
 plt.tick_params(axis='both', which='minor', labelsize=8)
 
-plt.xlim([-0.1, 8.1])
+plt.xlim([-0.1, np.log2(np.sqrt(N_Heads[-1])) + 0.1])
 plt.ylabel("PSNR(dB)", fontsize=10, fontweight="bold")
 plt.xlabel(r'$\mathbf{log_{2}{(\sqrt[2]{Number\:of\:Heads})}}$', fontsize=10)
 
