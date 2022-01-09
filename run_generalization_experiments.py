@@ -22,18 +22,55 @@ warnings.filterwarnings("ignore")
 
 
 
+# construct the argument parser and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image_path",
+                default="cameraman",
+                type=str,
+                help="path of input image")
 
-Base_alpha = 32
-Base_N_Heads = 256**2
-use_bias_sparse = False
+ap.add_argument("-bh", "--base_nheads",
+                default=256,
+                type=int,
+                help="root number of head for base multi-head network(for fair comparison)")
+
+ap.add_argument("-ba", "--base_alpha",
+                default=32,
+                type=int,
+                help="alpha parameters for base multi-head network(for fair comparison)")
+
+ap.add_argument("-ub", "--use_bias_sparse",
+                default=False,
+                type=bool,
+                help="Use the bias for the head part of the multi-head network")
+
+args = vars(ap.parse_args())
+
+
+
+
+image_path = args["image_path"]
+Base_N_Heads = args["base_nheads"] ** 2
+Base_alpha = args["base_alpha"]
+use_bias_sparse = args["use_bias_sparse"]
+
 N_Heads = [1**2, 2**2, 4**2, 8**2, 16**2, 32**2, 64**2, 128**2, 256**2]
 
 
 
 
-Major_Image = skimage.data.camera()
-Major_Image = Major_Image.astype(np.float32) / 255.
-Minor_Image = cv2.resize(Major_Image, (256, 256))
+if image_path == "cameraman":
+    Major_Image = skimage.data.camera()
+    Major_Image = Major_Image.astype(np.float32) / 255.
+    Minor_Image = cv2.resize(Major_Image, (256, 256))
+else:
+    Major_Image = cv2.imread(image_path)
+    Major_Image = Major_Image.astype(np.float32) / 255.
+    if len(Major_Image.shape) == 3:
+        Major_Image = cv2.cvtColor(Major_Image, cv2.COLOR_BGR2GRAY)
+
+    Major_Image = cv2.resize(Major_Image, (512, 512))
+    Minor_Image = cv2.resize(Major_Image, (256, 256))
 
 
 

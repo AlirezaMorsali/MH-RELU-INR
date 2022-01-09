@@ -1,5 +1,6 @@
 import os
 import time
+import argparse
 
 import tensorflow as tf
 import numpy as np
@@ -23,17 +24,62 @@ warnings.filterwarnings("ignore")
 
 
 
-Base_alpha = 256
-Base_N_Heads = 64**2
-use_bias_sparse = True
-n_heads = 64**2
+
+# construct the argument parser and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image_path",
+                default="cameraman",
+                type=str,
+                help="path of input image")
+
+ap.add_argument("-nh", "--n_heads",
+                default=64,
+                type=int,
+                help="number of head for multi-head network")
+
+ap.add_argument("-bh", "--base_nheads",
+                default=64,
+                type=int,
+                help="root number of head for base multi-head network(for fair comparison)")
+
+ap.add_argument("-ba", "--base_alpha",
+                default=256,
+                type=int,
+                help="alpha parameters for base multi-head network(for fair comparison)")
+
+ap.add_argument("-ub", "--use_bias_sparse",
+                default=True,
+                type=bool,
+                help="Use the bias for the head part of the multi-head network")
+
+args = vars(ap.parse_args())
 
 
 
 
-Major_Image = skimage.data.camera()
-Major_Image = Major_Image.astype(np.float32) / 255.
-Minor_Image = cv2.resize(Major_Image, (256, 256))
+image_path = args["image_path"]
+n_heads = args["n_heads"] ** 2
+Base_N_Heads = args["base_nheads"] ** 2
+Base_alpha = args["base_alpha"]
+use_bias_sparse = args["use_bias_sparse"]
+
+
+
+
+
+if image_path == "cameraman":
+    Major_Image = skimage.data.camera()
+    Major_Image = Major_Image.astype(np.float32) / 255.
+    Minor_Image = cv2.resize(Major_Image, (256, 256))
+else:
+    Major_Image = cv2.imread(image_path)
+    Major_Image = Major_Image.astype(np.float32) / 255.
+    if len(Major_Image.shape) == 3:
+        Major_Image = cv2.cvtColor(Major_Image, cv2.COLOR_BGR2GRAY)
+
+    Major_Image = cv2.resize(Major_Image, (512, 512))
+    Minor_Image = cv2.resize(Major_Image, (256, 256))
+
 
 
 
