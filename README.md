@@ -1,4 +1,4 @@
-## MH-RELU-INR
+# MH-RELU-INR
 This is the Tensorflow 2.x implementation of our paper ["Multi-Head ReLU Implicit Neural Representation Networks"](https://arxiv.org/abs/2110.03448), submitted in ICASSP 2022. 
 
 <div align=center>
@@ -9,13 +9,13 @@ In this paper, a novel multi-head multi-layer perceptron (MLP) structure is pres
 ## Convergence 
 https://user-images.githubusercontent.com/30603302/148702625-6e69f8e0-e631-4b63-86d4-a379e2b27eb0.mp4
 
-## Run
-### 1. Clone Repository
+# Run
+## 1. Clone Repository
 ```bash
 $ git clone https://github.com/AlirezaMorsali/MH-RELU-INR.git
 $ cd MH-RELU-INR/
 ```
-### 2. Requirements
+## 2. Requirements
 - Tensorflow >= 2.3.0
 - Numpy >= 1.19.2
 - Scikit-image >= 4.50.2
@@ -26,14 +26,14 @@ $ cd MH-RELU-INR/
 $ pip install -r requirements.txt
 ```
 
-### 3. Set hyperparameters and training config :
+## 3. Set hyperparameters and training config :
 You only need to change the constants in the [hyperparameters.py](https://github.com/AlirezaMorsali/MH-RELU-INR/blob/main/hyperparameters.py) to set the hyperparameters and the training config.
 
-### 4. Run experiments:
+## 4. Run experiments:
 Use the following codes to run the experiments.
 - Note : The results for the experiments are saved in the [result](https://github.com/AlirezaMorsali/MH-RELU-INR/tree/main/results) folder.
 
-#### Comparison experiments:
+### Comparison experiments:
 ```bash
 python run_comparison_experiments.py -i [path of input image] \
                                      -nh [number of heads for multi-head network] \
@@ -49,7 +49,7 @@ python run_comparison_experiments.py -i pics/sample1.jpg \
                                      -ba 256 \
                                      -ub true
 ```
-#### Generalization experiments:
+### Generalization experiments:
 ```bash
 python run_generalization_experiments.py -i [path of input image] \
                                          -bh [root number of heads for base multi-head network(for fair comparison)] \
@@ -63,7 +63,7 @@ python run_generalization_experiments.py -i pics/sample1.jpg \
                                          -ba 32 \
                                          -ub false
 ```
-#### Spectral bias experiments:
+### Spectral bias experiments:
 ```bash
 python run_spectral_bias_experiments.py
 ```
