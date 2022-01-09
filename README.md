@@ -35,17 +35,37 @@ Use the following codes to run the experiments.
 
 #### Comparison experiments:
 ```bash
-$ python run_comparison_experiments.py
+python run_comparison_experiments.py -i [path of input image] \
+                                     -nh [number of heads for multi-head network] \
+                                     -bh [root number of heads for base multi-head network(for fair comparison)] \
+                                     -ba [alpha parameter for base multi-head network(for fair comparison)] \
+                                     -ub [use bias for the head part of the multi-head network]
 ```
-
+**Example:** 
+```bash
+python run_comparison_experiments.py -i pics/sample1.jpg \
+                                     -nh 64 \
+                                     -bh 64 \
+                                     -ba 256 \
+                                     -ub true
+```
 #### Generalization experiments:
 ```bash
-$ python run_generalization_experiments.py
+python run_generalization_experiments.py -i [path of input image] \
+                                         -bh [root number of heads for base multi-head network(for fair comparison)] \
+                                         -ba [alpha parameter for base multi-head network(for fair comparison)] \
+                                         -ub [use bias for the head part of the multi-head network]
 ```
-
+**Example:** 
+```bash
+python run_generalization_experiments.py -i pics/sample1.jpg \
+                                         -bh 256 \
+                                         -ba 32 \
+                                         -ub false
+```
 #### Spectral bias experiments:
 ```bash
-$ python run_spectral_bias_experiments.py
+python run_spectral_bias_experiments.py
 ```
 
 ## Citation
