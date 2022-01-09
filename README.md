@@ -6,7 +6,8 @@ This is the Tensorflow 2.x implementation of our paper ["Multi-Head ReLU Implici
 </div>
 In this paper, a novel multi-head multi-layer perceptron (MLP) structure is presented for implicit neural representation (INR). Since conventional rectified linear unit (ReLU) networks are shown to exhibit spectral bias towards learning low-frequency features of the signal, we aim at mitigating this defect by taking advantage of local structure of the signals. To be more specific, an MLP is used to capture the global features of the underlying generator function of the desired signal. Then, several heads are utilized to reconstruct disjoint local features of the signal, and to reduce the computational complexity, sparse layers are deployed for attaching heads to the body. Through various experiments, we show that the proposed model does not suffer from the special bias of conventional ReLU networks and has superior generalization capabilities. Finally, simulation results confirm that the proposed multi-head structure outperforms existing INR methods with considerably less computational cost.
 
-
+## Convergence 
+https://user-images.githubusercontent.com/30603302/148702625-6e69f8e0-e631-4b63-86d4-a379e2b27eb0.mp4
 
 ## Run
 ### 1. Clone Repository
