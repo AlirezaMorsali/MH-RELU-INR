@@ -10,6 +10,9 @@ In this paper, a novel multi-head multi-layer perceptron (MLP) structure is pres
 https://user-images.githubusercontent.com/30603302/148702625-6e69f8e0-e631-4b63-86d4-a379e2b27eb0.mp4
 
 # Run
+## Demo
+Run experiments on Google Colab:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlirezaMorsali/MH-RELU-INR/blob/master/Demo_MH_RELU_INR.ipynb)
+
 ## 1. Clone Repository
 ```bash
 $ git clone https://github.com/AlirezaMorsali/MH-RELU-INR.git
