@@ -1,5 +1,6 @@
 import os
 import time
+import argparse
 
 import tensorflow as tf
 import numpy as np
@@ -125,13 +126,10 @@ for counter, n_heads in enumerate(N_Heads):
                               verbose=0) # if you want to see train progress change verbose to 1
     print(f"Total Time : {time.time() - start}")
 
-    Head_Historys.append(history.history["loss"])
+
     Save_Result_Callbacks_Minor.append(save_result_callback_minor)
     Save_Result_Callbacks_Major.append(save_result_callback_major)
 
-
-
-Total_Historys.append(Head_Historys)
 
 
 psnr_minor = []
