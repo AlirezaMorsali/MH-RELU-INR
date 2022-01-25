@@ -1,5 +1,5 @@
 # MH-RELU-INR
-This is the Tensorflow 2.x implementation of our paper ["Multi-Head ReLU Implicit Neural Representation Networks"](https://arxiv.org/abs/2110.03448), submitted in ICASSP 2022. 
+This is the Tensorflow 2.x implementation of our paper ["Multi-Head ReLU Implicit Neural Representation Networks"](https://arxiv.org/abs/2110.03448), accepted in ICASSP 2022. 
 
 <div align=center>
 <img width=95% src="https://github.com/AlirezaMorsali/MH-RELU-INR/blob/main/pics/Architecture.png"/>
