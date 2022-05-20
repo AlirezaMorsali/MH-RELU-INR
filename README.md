@@ -75,10 +75,12 @@ python run_spectral_bias_experiments.py
 
 If you find our code useful for your research, please consider citing:
 ```bibtex
-@article{aftab2021multi,
+@inproceedings{aftab2022multi,
   title={Multi-Head ReLU Implicit Neural Representation Networks},
-  author={Aftab, Arya and Morsali, Alireza},
-  journal={arXiv preprint arXiv:2110.03448},
-  year={2021}
+  author={Aftab, Arya and Morsali, Alireza and Ghaemmaghami, Shahrokh},
+  booktitle={ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={2510--2514},
+  year={2022},
+  organization={IEEE}
 }
 ```
